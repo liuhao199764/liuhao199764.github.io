@@ -56,28 +56,34 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="我不知去向何方">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="1.K8S架构和组件 1.1 Master Kubernetes API Server 作为Kubernetes系统的入口，其封装了核心对象的增删改查操作，以RESTful API接口方式提供给外部客户和内部组件调用。维护的REST对象持久化到Etcd中存储。  Kubernetes Scheduler为新建立的Pod进行节点(node)选择(即分配机器)，负责集群的资源调度。组件抽离，可以方便">
+<meta property="og:type" content="article">
+<meta property="og:title" content="k8s">
+<meta property="og:url" content="http://yoursite.com/2019/08/26/k8s/index.html">
 <meta property="og:site_name" content="我不知去向何方">
+<meta property="og:description" content="1.K8S架构和组件 1.1 Master Kubernetes API Server 作为Kubernetes系统的入口，其封装了核心对象的增删改查操作，以RESTful API接口方式提供给外部客户和内部组件调用。维护的REST对象持久化到Etcd中存储。  Kubernetes Scheduler为新建立的Pod进行节点(node)选择(即分配机器)，负责集群的资源调度。组件抽离，可以方便">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2019/08/26/k8s/C:%5CUsers%5Cliuhao%5Cblog%5Csource_posts%5Ck8s%5Ck8s.png">
+<meta property="og:updated_time" content="2019-08-26T03:09:26.273Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我不知去向何方">
-  <link rel="canonical" href="http://yoursite.com/">
+<meta name="twitter:title" content="k8s">
+<meta name="twitter:description" content="1.K8S架构和组件 1.1 Master Kubernetes API Server 作为Kubernetes系统的入口，其封装了核心对象的增删改查操作，以RESTful API接口方式提供给外部客户和内部组件调用。维护的REST对象持久化到Etcd中存储。  Kubernetes Scheduler为新建立的Pod进行节点(node)选择(即分配机器)，负责集群的资源调度。组件抽离，可以方便">
+<meta name="twitter:image" content="http://yoursite.com/2019/08/26/k8s/C:%5CUsers%5Cliuhao%5Cblog%5Csource_posts%5Ck8s%5Ck8s.png">
+  <link rel="canonical" href="http://yoursite.com/2019/08/26/k8s/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false,
+    isHome: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>我不知去向何方</title>
+  <title>k8s | 我不知去向何方</title>
   <meta name="generator" content="Hexo 3.9.0">
   
 
@@ -227,10 +233,11 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="content" class="content page-home">
+          <div id="content" class="content page-post-detail">
             
-  <section id="posts" class="posts-expand">
-      
+
+  <div id="posts" class="posts-expand">
+    
 
   <article class="post" itemscope itemtype="http://schema.org/Article">
   
@@ -249,9 +256,8 @@
       <meta itemprop="name" content="我不知去向何方">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/08/26/k8s/" class="post-title-link" itemprop="url">k8s</a>
+        <h1 class="post-title" itemprop="name headline">k8s
+
           
         </h1>
 
@@ -306,7 +312,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <hr>
+        <hr>
 <h2 id="1-K8S架构和组件"><a href="#1-K8S架构和组件" class="headerlink" title="1.K8S架构和组件"></a>1.K8S架构和组件</h2><p><img src="//yoursite.com/2019/08/26/k8s/C:%5CUsers%5Cliuhao%5Cblog%5Csource_posts%5Ck8s%5Ck8s.png" alt="360截图17290509342963"></p>
 <h3 id="1-1-Master"><a href="#1-1-Master" class="headerlink" title="1.1 Master"></a>1.1 Master</h3><ul>
 <li><p>Kubernetes API Server</p>
@@ -400,27 +406,50 @@
 </li>
 </ul>
 
-        
-      
     </div>
 
     
     
     
-      <footer class="post-footer">
-          <div class="post-eof"></div>
         
+      
+        <div id="reward-container">
+  <div>求大佬赏饭。</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.png" alt="LiuHao 微信支付">
+        <p>微信支付</p>
+      </div>
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.png" alt="LiuHao 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+      
+
+      <footer class="post-footer">
+
+        
+
       </footer>
+    
   </div>
   
   
   
   </article>
 
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
@@ -439,6 +468,11 @@
 
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
+        
+        
+        
+        
+      
 
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc" data-target="post-toc-wrap">
@@ -451,6 +485,10 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc">
+            <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-K8S架构和组件"><span class="nav-number">1.</span> <span class="nav-text">1.K8S架构和组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-Master"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 Master</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-Node"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 Node</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-K8S集群搭建常见问题"><span class="nav-number">2.</span> <span class="nav-text">2.K8S集群搭建常见问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-常用命令"><span class="nav-number">3.</span> <span class="nav-text">3.常用命令</span></a></li></ol></div>
+          </div>
+        
       </div>
       <!--/noindex-->
 
@@ -578,6 +616,9 @@
 
 
   
+  <script src="/js/post-details.js?v=7.3.0"></script>
+
+
   
  <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
  <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
