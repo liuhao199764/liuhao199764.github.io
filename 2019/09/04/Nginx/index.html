@@ -67,7 +67,7 @@
 <meta property="og:image" content="https://liuhao199764.github.io/2019/09/04/Nginx/Nginx/http.png">
 <meta property="og:image" content="https://liuhao199764.github.io/2019/09/04/Nginx/Nginx/http_access_module.png">
 <meta property="og:image" content="https://liuhao199764.github.io/2019/09/04/Nginx/Nginx/http_access_module1.png">
-<meta property="og:updated_time" content="2019-09-04T02:40:27.997Z">
+<meta property="og:updated_time" content="2019-09-04T03:12:08.564Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx">
 <meta name="twitter:description" content="Nginx配置文件Nginx主配置⽂件nginx.conf 是⼀个纯⽂本类型的⽂件，整个配置⽂件是以区块的 形式组织的。⼀般，每个区块以⼀对⼤括号 {} 来表示开始与结束。  Main位于nginx.conf配置⽂件的最⾼层 Main层下可以有Event、HTTP层 HTTP层下⾯有允许有多个Server层, ⽤于对不同的⽹站做不同的配置 Server层也允许有多个Location, ⽤于对不同的">
@@ -275,7 +275,7 @@
                 
               
 
-              <time title="创建时间：2019-09-04 10:13:28 / 修改时间：10:40:27" itemprop="dateCreated datePublished" datetime="2019-09-04T10:13:28+08:00">2019-09-04</time>
+              <time title="创建时间：2019-09-04 10:13:28 / 修改时间：11:12:08" itemprop="dateCreated datePublished" datetime="2019-09-04T10:13:28+08:00">2019-09-04</time>
             </span>
           
             
@@ -350,7 +350,7 @@
 <h3 id="Nginx访问限制"><a href="#Nginx访问限制" class="headerlink" title="Nginx访问限制"></a>Nginx访问限制</h3><p>连接频率限制 limit_conn_module</p>
 <p>请求频率限制 limit_req_module</p>
 <h5 id="http协议的连接与请求"><a href="#http协议的连接与请求" class="headerlink" title="http协议的连接与请求"></a><strong>http</strong>协议的连接与请求</h5><p>HTTP是建⽴在TCP, 在完成HTTP请求需要先建⽴TCP三次握⼿（称为TCP连接）,在连接的基础上再HTTP请求。</p>
-<p><img src="Nginx/http.png" alt="http协议的连接与请求"></p>
+<p><img src="Nginx/http.png" alt="http"></p>
 <p>HTTP 协议的连接与请求</p>
 <table>
 <thead>
@@ -384,9 +384,9 @@
 <p>基于IP的访问控制</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">//允许配置语法</span><br><span class="line">Syntax:	allow	address	|	CIDR	|	unix:	|	all;</span><br><span class="line">Default:				—</span><br><span class="line">Context:				http,	server,	location,	limit_except</span><br><span class="line">//拒绝配置语法</span><br><span class="line">Syntax:	deny	address	|	CIDR	|	unix:	|	all;</span><br><span class="line">Default:				—</span><br><span class="line">Context:				http,	server,	location,	limit_except</span><br><span class="line">//配置拒绝某⼀个IP,	其他全部允许</span><br><span class="line">location	~	^/<span class="number">1</span>.html	&#123;</span><br><span class="line">				root	/usr/share/nginx/html;</span><br><span class="line">				index	index.html;</span><br><span class="line">				deny	<span class="number">192.168</span>.<span class="number">56.1</span>;</span><br><span class="line">				allow	all;</span><br><span class="line">&#125;</span><br><span class="line">//只允许某⼀个⽹段访问,其它全部拒绝</span><br><span class="line">location	/	&#123;</span><br><span class="line">				root			html;</span><br><span class="line">				index		    index.php	index.html	index.htm;</span><br><span class="line">				allow			<span class="number">192.168</span>.<span class="number">56.0</span>/<span class="number">24</span>;</span><br><span class="line">				deny			all;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h5 id="http-access-module局限性"><a href="#http-access-module局限性" class="headerlink" title="http_access_module局限性"></a><strong>http_access_module</strong>局限性</h5><p><img src="Nginx/http_access_module.png" alt=" http_access_module局限性"></p>
+<h5 id="http-access-module局限性"><a href="#http-access-module局限性" class="headerlink" title="http_access_module局限性"></a><strong>http_access_module</strong>局限性</h5><p><img src="Nginx/http_access_module.png" alt=" http_access_module"></p>
 <p> 下图是使⽤ http_x_forwarded_for 记录真实客户端IP地址以及代理服务器IP</p>
-<p><img src="Nginx/http_access_module1.png" alt></p>
+<p><img src="Nginx/http_access_module1.png" alt="http_access_module1"></p>
 <h5 id="解决⽅式"><a href="#解决⽅式" class="headerlink" title="解决⽅式"></a>解决⽅式</h5><p>1.采⽤HTTP头信息控制访问, 代理以及web服务开启 http_x_forwarded_for</p>
 <p>2.结合geo模块作</p>
 <p>3.通过HTTP⾃动以变量传递</p>
