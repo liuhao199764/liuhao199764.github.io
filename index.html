@@ -320,7 +320,7 @@
 <h3 id="Nginx⽇志配置"><a href="#Nginx⽇志配置" class="headerlink" title="Nginx⽇志配置"></a><strong>Nginx</strong>⽇志配置</h3><p>在学习⽇志之前, 我们需要先了解下HTTP请求和返回</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -v	http://www.baidu.com</span><br></pre></td></tr></table></figure>
 
-<p><img src="//liuhao199764.github.io/2019/09/04/Nginx/Nginx.png" alt="Http请求与返回"></p>
+<p><img src="/2019/09/04/Nginx/Nginx.png" alt="Http请求与返回"></p>
 <h5 id="Nginx⽇志配置规范"><a href="#Nginx⽇志配置规范" class="headerlink" title="Nginx⽇志配置规范"></a>Nginx⽇志配置规范</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">//配置语法:	包括:	error.log	access.log</span><br><span class="line">Syntax:	log_format	name	[escape=default|json]	string	...;</span><br><span class="line">Default:				log_format	combined	"...";</span><br><span class="line">Context:				http</span><br><span class="line">//Nginx默认配置</span><br><span class="line">log_format	main		'$remote_addr -	$remote_user [$time_local] "$request"'</span><br><span class="line">						'$status	$body_bytes_sent	"$http_referer"'										'"$http_user_agent"	"$http_x_forwarded_for"';</span><br><span class="line">//Nginx⽇志变量</span><br><span class="line"><span class="meta">$</span>remote_addr				//表示客户端地址</span><br><span class="line"><span class="meta">$</span>remote_user				//http客户端请求nginx认证⽤户名</span><br><span class="line"><span class="meta">$</span>time_local					//Nginx的时间</span><br><span class="line"><span class="meta">$</span>request					//Request请求⾏,	GET等⽅法、http协议版本</span><br><span class="line"><span class="meta">$</span>status						//respoence返回状态码</span><br><span class="line"><span class="meta">$</span>body_bytes_sent			//从服务端响应给客户端body信息⼤⼩</span><br><span class="line"><span class="meta">$</span>http_referer				//http上⼀级⻚⾯,	防盗链、⽤户⾏为分析</span><br><span class="line"><span class="meta">$</span>http_user_agent			//http头部信息,	客户端访问设备</span><br><span class="line"><span class="meta">$</span>http_x_forwarded_for		//http请求携带的http信息</span><br></pre></td></tr></table></figure>
 
 <hr>
@@ -1015,7 +1015,7 @@
 
       
           <hr>
-<h2 id="1-K8S架构和组件"><a href="#1-K8S架构和组件" class="headerlink" title="1.K8S架构和组件"></a>1.K8S架构和组件</h2><p><img src="//liuhao199764.github.io/2019/08/26/k8s/k8s.png" alt="k8s"></p>
+<h2 id="1-K8S架构和组件"><a href="#1-K8S架构和组件" class="headerlink" title="1.K8S架构和组件"></a>1.K8S架构和组件</h2><p><img src="/2019/08/26/k8s/k8s.png" alt="k8s"></p>
 <h3 id="1-1-Master"><a href="#1-1-Master" class="headerlink" title="1.1 Master"></a>1.1 Master</h3><ul>
 <li><p>Kubernetes API Server</p>
 <p>作为Kubernetes系统的入口，其封装了核心对象的增删改查操作，以RESTful API接口方式提供给外部客户和内部组件调用。维护的REST对象持久化到Etcd中存储。</p>
