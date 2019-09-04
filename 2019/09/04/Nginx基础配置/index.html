@@ -56,28 +56,37 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="我不知去向何方">
-<meta property="og:url" content="https://liuhao199764.github.io/index.html">
+  <meta name="description" content="Nginx配置文件Nginx主配置⽂件nginx.conf 是⼀个纯⽂本类型的⽂件，整个配置⽂件是以区块的 形式组织的。⼀般，每个区块以⼀对⼤括号 {} 来表示开始与结束。  Main位于nginx.conf配置⽂件的最⾼层 Main层下可以有Event、HTTP层 HTTP层下⾯有允许有多个Server层, ⽤于对不同的⽹站做不同的配置 Server层也允许有多个Location, ⽤于对不同的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nginx基础配置">
+<meta property="og:url" content="https://liuhao199764.github.io/2019/09/04/Nginx基础配置/index.html">
 <meta property="og:site_name" content="我不知去向何方">
+<meta property="og:description" content="Nginx配置文件Nginx主配置⽂件nginx.conf 是⼀个纯⽂本类型的⽂件，整个配置⽂件是以区块的 形式组织的。⼀般，每个区块以⼀对⼤括号 {} 来表示开始与结束。  Main位于nginx.conf配置⽂件的最⾼层 Main层下可以有Event、HTTP层 HTTP层下⾯有允许有多个Server层, ⽤于对不同的⽹站做不同的配置 Server层也允许有多个Location, ⽤于对不同的">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://liuhao199764.github.io/2019/09/04/Nginx基础配置/nginx.png">
+<meta property="og:image" content="https://liuhao199764.github.io/2019/09/04/Nginx基础配置/Nginx%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/http.png">
+<meta property="og:image" content="https://liuhao199764.github.io/2019/09/04/Nginx基础配置/Nginx%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/http_access_module.png">
+<meta property="og:image" content="https://liuhao199764.github.io/2019/09/04/Nginx基础配置/Nginx%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/http_access_module1.png">
+<meta property="og:updated_time" content="2019-09-04T01:56:26.613Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我不知去向何方">
-  <link rel="canonical" href="https://liuhao199764.github.io/">
+<meta name="twitter:title" content="Nginx基础配置">
+<meta name="twitter:description" content="Nginx配置文件Nginx主配置⽂件nginx.conf 是⼀个纯⽂本类型的⽂件，整个配置⽂件是以区块的 形式组织的。⼀般，每个区块以⼀对⼤括号 {} 来表示开始与结束。  Main位于nginx.conf配置⽂件的最⾼层 Main层下可以有Event、HTTP层 HTTP层下⾯有允许有多个Server层, ⽤于对不同的⽹站做不同的配置 Server层也允许有多个Location, ⽤于对不同的">
+<meta name="twitter:image" content="https://liuhao199764.github.io/2019/09/04/Nginx基础配置/nginx.png">
+  <link rel="canonical" href="https://liuhao199764.github.io/2019/09/04/Nginx基础配置/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false,
+    isHome: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>我不知去向何方</title>
+  <title>Nginx基础配置 | 我不知去向何方</title>
   <meta name="generator" content="Hexo 3.9.0">
   
 
@@ -227,10 +236,11 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="content" class="content page-home">
+          <div id="content" class="content page-post-detail">
             
-  <section id="posts" class="posts-expand">
-      
+
+  <div id="posts" class="posts-expand">
+    
 
   <article class="post" itemscope itemtype="http://schema.org/Article">
   
@@ -249,9 +259,8 @@
       <meta itemprop="name" content="我不知去向何方">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/09/04/Nginx基础配置/" class="post-title-link" itemprop="url">Nginx基础配置</a>
+        <h1 class="post-title" itemprop="name headline">Nginx基础配置
+
           
         </h1>
 
@@ -306,7 +315,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="Nginx配置文件"><a href="#Nginx配置文件" class="headerlink" title="Nginx配置文件"></a>Nginx配置文件</h3><p>Nginx主配置⽂件nginx.conf 是⼀个纯⽂本类型的⽂件，整个配置⽂件是以区块的</p>
+        <h3 id="Nginx配置文件"><a href="#Nginx配置文件" class="headerlink" title="Nginx配置文件"></a>Nginx配置文件</h3><p>Nginx主配置⽂件nginx.conf 是⼀个纯⽂本类型的⽂件，整个配置⽂件是以区块的</p>
 <p>形式组织的。⼀般，每个区块以⼀对⼤括号 {} 来表示开始与结束。</p>
 <ol>
 <li>Main位于nginx.conf配置⽂件的最⾼层</li>
@@ -402,735 +411,66 @@
 <h5 id="配置虚拟主机别名"><a href="#配置虚拟主机别名" class="headerlink" title="配置虚拟主机别名"></a>配置虚拟主机别名</h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">所谓虚拟主机别名，就是虚拟主机设置除了主域名以外的⼀个域名，实现⽤户访问的多个域名对应同⼀个</span><br><span class="line">虚拟主机⽹站的功能。</span><br><span class="line">以www.xuliangwei.com域名的虚拟主机为例:</span><br><span class="line">为其增加⼀个别名xuliangwei.com时,出现⽹站内容和访问www.xuliangwei.com是⼀样的,具体配置如</span><br><span class="line">下：</span><br><span class="line">//默认配置</span><br><span class="line">[root@LNMP	~]<span class="comment">#	vim	/etc/nginx/nginx.conf</span></span><br><span class="line">server	&#123;</span><br><span class="line">				listen							<span class="number">80</span>;</span><br><span class="line">				server_name	www.xuliangwei.com;</span><br><span class="line">&#125;</span><br><span class="line">//别名配置</span><br><span class="line">[root@LNMP	~]<span class="comment">#	vim	/etc/nginx/nginx.conf</span></span><br><span class="line">server	&#123;</span><br><span class="line">				listen							<span class="number">80</span>;</span><br><span class="line">				server_name		www.xuliangwei.com	xuliangwei.com;</span><br><span class="line">				...</span><br><span class="line">&#125;</span><br><span class="line">//使⽤Linux下curl测试结果</span><br><span class="line">[root@LNMP	conf]<span class="comment">#	curl	xuliangwei.com</span></span><br><span class="line">www.xuliangwei.com</span><br><span class="line">[root@LNMP	conf]<span class="comment">#	curl	www.xuliangwei.com</span></span><br><span class="line">www.xuliangwei.com</span><br><span class="line">//访问带www和不带www是⼀样的,	除了别名实现也可以通过rewrite实现</span><br></pre></td></tr></table></figure>
 
 
-        
-      
     </div>
 
     
     
     
+        
+      
+        <div id="reward-container">
+  <div>求大佬赏饭。</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.png" alt="LiuHao 微信支付">
+        <p>微信支付</p>
+      </div>
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.png" alt="LiuHao 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+      
+
       <footer class="post-footer">
-          <div class="post-eof"></div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/08/26/mysql性能优化常用命令/" rel="next" title="mysql性能优化常用命令">
+                  <i class="fa fa-chevron-left"></i> mysql性能优化常用命令
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
         
       </footer>
+    
   </div>
   
   
   
   </article>
 
-    
-      
-
-  <article class="post" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://liuhao199764.github.io/2019/08/26/mysql性能优化常用命令/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiuHao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我不知去向何方">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/08/26/mysql性能优化常用命令/" class="post-title-link" itemprop="url">mysql性能优化常用命令</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-08-26 12:18:46 / 修改时间：14:23:46" itemprop="dateCreated datePublished" datetime="2019-08-26T12:18:46+08:00">2019-08-26</time>
-            </span>
-          
-            
-
-            
-          
-
-          
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">本文字数：</span>
-              
-              <span>7.3k</span>
-            </span>
-          
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              
-              <span>7 分钟</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show global status;</span><br></pre></td></tr></table></figure>
-
-<p>可以列出MySQL服务器运行各种状态值，另外，查询MySQL服务器配置信息语句：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show variables;</span><br></pre></td></tr></table></figure>
-
-<p>一、慢查询 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　mysql&gt; show variables like &apos;%slow%&apos;;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　mysql&gt; show global status like &apos;%slow%&apos;;</span><br></pre></td></tr></table></figure>
-
-<p> 配置中打开了记录慢查询，执行时间超过2秒的即为慢查询，系统显示有4148个慢查询，你可以分析慢查询日志，找出有问题的SQL语句，慢查询时间不宜设置过长，否则意义不大，最好在5秒以内，如果你需要微秒级别的慢查询，可以考虑给MySQL打补丁：<a href="http://www.percona.com/docs/wiki/release:start，记得找对应的版本。打开慢查询日志可能会对系统性能有一点点影响，如果你的MySQL是主-从结构，可以考虑打开其中一台从服务器的慢查询日志，这样既可以监控慢查询，对系统性能影响又小。" target="_blank" rel="noopener">http://www.percona.com/docs/wiki/release:start，记得找对应的版本。打开慢查询日志可能会对系统性能有一点点影响，如果你的MySQL是主-从结构，可以考虑打开其中一台从服务器的慢查询日志，这样既可以监控慢查询，对系统性能影响又小。</a></p>
-<hr>
-<p>二、连接数 </p>
-<p>经常会遇见”MySQL: ERROR 1040: Too many connections”的情况，一种是访问量确实很高，MySQL服务器抗不住，这个时候就要考虑增加从服务器分散读压力，另外一种情况是MySQL配置文件中max_connections值过小： </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show variables like &apos;max_connections&apos;;</span><br></pre></td></tr></table></figure>
-
-<p>查询结果如下</p>
-<table>
-<thead>
-<tr>
-<th>Variable_name</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>max_connections</td>
-<td>256</td>
-</tr>
-</tbody></table>
-<p>这台MySQL服务器最大连接数是256，然后查询一下服务器响应的最大连接数：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show global status like ‘Max_used_connections’;</span><br></pre></td></tr></table></figure>
-
-<p>MySQL服务器过去的最大连接数是245，没有达到服务器连接数上限256，应该没有出现1040错误，比较理想的设置是：</p>
-<p>Max_used_connections / max_connections * 100% ≈ 85%</p>
-<p>最大连接数占上限连接数的85%左右，如果发现比例在10%以下，MySQL服务器连接数上限设置的过高了。</p>
-<hr>
-<p>三、Key_buffer_size </p>
-<p>key_buffer_size是对MyISAM表性能影响最大的一个参数，下面一台以MyISAM为主要存储引擎服务器的配置： </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show variables like ‘key_buffer_size’;</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>Variable_name</th>
-<th>Variable_name</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>key_buffer_size</td>
-<td>536870912</td>
-</tr>
-</tbody></table>
-<p>分配了512MB内存给key_buffer_size，我们再看一下key_buffer_size的使用情况： </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　mysql&gt; show global status like &apos;key_read%&apos;;</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>Variable_name</th>
-<th>Value</th>
-<th>mysql</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Key_read_requests</td>
-<td>27813678764</td>
-<td></td>
-</tr>
-<tr>
-<td>Key_reads</td>
-<td>6798830</td>
-<td></td>
-</tr>
-</tbody></table>
-<p>一共有27813678764个索引读取请求，有6798830个请求在内存中没有找到直接从硬盘读取索引，计算索引未命中缓存的概率：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　key_cache_miss_rate = Key_reads / Key_read_requests * 100%</span><br></pre></td></tr></table></figure>
-
-<p>比如上面的数据，key_cache_miss_rate为0.0244%，4000个索引读取请求才有一个直接读硬盘，已经很BT了,key_cache_miss_rate在0.1%以下都很好(每1000个请求有一个直接读硬盘)，如果key_cache_miss_rate在0.01%以下的话，key_buffer_size分配的过多，可以适当减少。</p>
-<p>MySQL服务器还提供了key_blocks_*参数： </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　mysql&gt; show global status like &apos;key_blocks_u%&apos;;</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>Variable_name</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Key_blocks_unused</td>
-<td>0</td>
-</tr>
-<tr>
-<td>Key_blocks_used</td>
-<td>413543</td>
-</tr>
-</tbody></table>
-<p> Key_blocks_unused表示未使用的缓存簇(blocks)数，Key_blocks_used表示曾经用到的最大的blocks数，比如这台服务器，所有的缓存都用到了，要么增加key_buffer_size，要么就是过渡索引了，把缓存占满了。比较理想的设置： Key_blocks_used / (Key_blocks_unused + Key_blocks_used) * 100% ≈ 80%</p>
-<hr>
-<p>四、临时表 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show global status like &apos;created_tmp%&apos;;</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>Variable_name</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Created_tmp_disk_tables</td>
-<td>21197</td>
-</tr>
-<tr>
-<td>Created_tmp_files</td>
-<td>58</td>
-</tr>
-<tr>
-<td>Created_tmp_tables</td>
-<td>1771587</td>
-</tr>
-</tbody></table>
-<p>每次创建临时表，Created_tmp_tables增加，如果是在磁盘上创建临时表，Created_tmp_disk_tables也增加,Created_tmp_files表示MySQL服务创建的临时文件文件数，比较理想的配置是：</p>
-<p>Created_tmp_disk_tables / Created_tmp_tables * 100% &lt;= 25% </p>
-<p>比如上面的服务器Created_tmp_disk_tables / Created_tmp_tables * 100% = 1.20%，应该相当好了。我们再看一下MySQL服务器对临时表的配置。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show variables where Variable_name in (&apos;tmp_table_size&apos;, &apos;max_heap_table_size&apos;);</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>Variable_name</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>max_heap_table_size</td>
-<td>268435456</td>
-</tr>
-<tr>
-<td>tmp_table_size</td>
-<td>536870912</td>
-</tr>
-</tbody></table>
-<p>只有256MB以下的临时表才能全部放内存，超过的就会用到硬盘临时表。</p>
-<hr>
-<p>五、Open Table情况 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　mysql&gt; show global status like &apos;open%tables%&apos;;</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>Variable_name</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Open_tables</td>
-<td>919</td>
-</tr>
-<tr>
-<td>Opened_tables</td>
-<td>1951</td>
-</tr>
-</tbody></table>
-<p>Open_tables表示打开表的数量，Opened_tables表示打开过的表数量，如果Opened_tables数量过大，说明配置中table_cache(5.1.3之后这个值叫做table_open_cache)值可能太小，我们查询一下服务器table_cache值： </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show variables like &apos;table_cache&apos;;</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>Variable_name</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>table_cache</td>
-<td>2048</td>
-</tr>
-</tbody></table>
-<p>比较合适的值为： </p>
-<p>Open_tables / Opened_tables * 100% &gt;= 85%</p>
-<p>Open_tables / table_cache * 100% &lt;= 95%</p>
-<hr>
-<p>六、进程使用情况</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show global status like ‘Thread%’;</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>Variable_name</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Threads_cached</td>
-<td>46</td>
-</tr>
-<tr>
-<td>Threads_connected</td>
-<td>2</td>
-</tr>
-<tr>
-<td>Threads_created</td>
-<td>570</td>
-</tr>
-<tr>
-<td>Threads_running</td>
-<td>1</td>
-</tr>
-</tbody></table>
-<p>如果我们在MySQL服务器配置文件中设置了thread_cache_size，当客户端断开之后，服务器处理此客户的线程将会缓存起来以响应下一个客户而不是销毁(前提是缓存数未达上限)。Threads_created表示创建过的线程数，如果发现Threads_created值过大的话，表明MySQL服务器一直在创建线程，这也是比较耗资源，可以适当增加配置文件中thread_cache_size值，查询服务器thread_cache_size配置： </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show variables like &apos;thread_cache_size&apos;;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>七、查询缓存(query cache) </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show global status like &apos;qcache%&apos;;</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>Variable_name</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Qcache_free_blocks</td>
-<td>22756</td>
-</tr>
-<tr>
-<td>Qcache_free_memory</td>
-<td>76764704</td>
-</tr>
-<tr>
-<td>Qcache_hits</td>
-<td>213028692</td>
-</tr>
-<tr>
-<td>Qcache_inserts</td>
-<td>208894227</td>
-</tr>
-<tr>
-<td>Qcache_lowmem_prunes</td>
-<td>4010916</td>
-</tr>
-<tr>
-<td>Qcache_not_cached</td>
-<td>13385031</td>
-</tr>
-<tr>
-<td>Qcache_queries_in_cache</td>
-<td>43560</td>
-</tr>
-<tr>
-<td>Qcache_total_blocks</td>
-<td>111212</td>
-</tr>
-</tbody></table>
-<p>MySQL查询缓存变量解释：</p>
-<p>Qcache_free_blocks：缓存中相邻内存块的个数。数目大说明可能有碎片。FLUSH QUERY CACHE会对缓存中的碎片进行整理，从而得到一个空闲块。<br>Qcache_free_memory：缓存中的空闲内存。<br>Qcache_hits：每次查询在缓存中命中时就增大<br>Qcache_inserts：每次插入一个查询时就增大。命中次数除以插入次数就是不中比率。<br>Qcache_lowmem_prunes：缓存出现内存不足并且必须要进行清理以便为更多查询提供空间的次数。这个数字最好长时间来看;如果这个数字在不断增长，就表示可能碎片非常严重，或者内存很少。(上面的 free_blocks和free_memory可以告诉您属于哪种情况)<br>Qcache_not_cached：不适合进行缓存的查询的数量，通常是由于这些查询不是 SELECT 语句或者用了now()之类的函数。<br>Qcache_queries_in_cache：当前缓存的查询(和响应)的数量。<br>Qcache_total_blocks：缓存中块的数量。</p>
-<p>我们再查询一下服务器关于query_cache的配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show variables like &apos;query_cache%&apos;;</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>Variable_name</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>query_cache_limit</td>
-<td>2097152</td>
-</tr>
-<tr>
-<td>query_cache_min_res_unit</td>
-<td>4096</td>
-</tr>
-<tr>
-<td>query_cache_size</td>
-<td>203423744</td>
-</tr>
-<tr>
-<td>query_cache_type</td>
-<td>ON</td>
-</tr>
-<tr>
-<td>query_cache_wlock_invalidate</td>
-<td>OFF</td>
-</tr>
-</tbody></table>
-<p>各字段的解释：</p>
-<p>query_cache_limit：超过此大小的查询将不缓存<br>query_cache_min_res_unit：缓存块的最小大小<br>query_cache_size：查询缓存大小<br>query_cache_type：缓存类型，决定缓存什么样的查询，示例中表示不缓存 select sql_no_cache 查询<br>query_cache_wlock_invalidate：当有其他客户端正在对MyISAM表进行写操作时，如果查询在query cache中，是否返回cache结果还是等写操作完成再读表获取结果。<br>query_cache_min_res_unit的配置是一柄”双刃剑”，默认是4KB，设置值大对大数据查询有好处，但如果你的查询都是小数据查询，就容易造成内存碎片和浪费。<br>查询缓存碎片率 = Qcache_free_blocks / Qcache_total_blocks * 100%<br>如果查询缓存碎片率超过20%，可以用FLUSH QUERY CACHE整理缓存碎片，或者试试减小query_cache_min_res_unit，如果你的查询都是小数据量的话。<br>查询缓存利用率 = (query_cache_size - Qcache_free_memory) / query_cache_size * 100%<br>查询缓存利用率在25%以下的话说明query_cache_size设置的过大，可适当减小;查询缓存利用率在80%以上而且Qcache_lowmem_prunes &gt; 50的话说明query_cache_size可能有点小，要不就是碎片太多。<br>查询缓存命中率 = (Qcache_hits - Qcache_inserts) / Qcache_hits * 100%<br>示例服务器 查询缓存碎片率 = 20.46%，查询缓存利用率 = 62.26%，查询缓存命中率 = 1.94%，命中率很差，可能写操作比较频繁吧，而且可能有些碎片。</p>
-<hr>
-<p>八、排序使用情况 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　mysql&gt; show global status like &apos;sort%&apos;;</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>Variable_name</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Sort_merge_passes</td>
-<td>29</td>
-</tr>
-<tr>
-<td>Sort_range</td>
-<td>37432840</td>
-</tr>
-<tr>
-<td>Sort_rows</td>
-<td>9178691532</td>
-</tr>
-<tr>
-<td>Sort_scan</td>
-<td>1860569</td>
-</tr>
-</tbody></table>
-<p>Sort_merge_passes 包括两步。MySQL 首先会尝试在内存中做排序，使用的内存大小由系统变量 Sort_buffer_size 决定，如果它的大小不够把所有的记录都读到内存中，MySQL 就会把每次在内存中排序的结果存到临时文件中，等 MySQL 找到所有记录之后，再把临时文件中的记录做一次排序。这再次排序就会增加 Sort_merge_passes。实际上，MySQL 会用另一个临时文件来存再次排序的结果，所以通常会看到 Sort_merge_passes 增加的数值是建临时文件数的两倍。因为用到了临时文件，所以速度可能会比较慢，增加 Sort_buffer_size 会减少 Sort_merge_passes 和 创建临时文件的次数。但盲目的增加 Sort_buffer_size 并不一定能提高速度，见 How fast can you sort data with MySQL?(引自<a href="http://qroom.blogspot.com/2007/09/mysql-select-sort.html，貌似被墙" target="_blank" rel="noopener">http://qroom.blogspot.com/2007/09/mysql-select-sort.html，貌似被墙</a>) mysql<br>另外，增加read_rnd_buffer_size(3.2.3是record_rnd_buffer_size)的值对排序的操作也有一点的好处，参见：<a href="http://www.mysqlperformanceblog.com/2007/07/24/what-exactly-is-read_rnd_buffer_size/" target="_blank" rel="noopener">http://www.mysqlperformanceblog.com/2007/07/24/what-exactly-is-read_rnd_buffer_size/</a></p>
-<hr>
-<p>九、文件打开数(open_files) </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　mysql&gt; show global status like &apos;open_files&apos;;</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>Variable_namev</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Open_files</td>
-<td>1410</td>
-</tr>
-</tbody></table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show variables like &apos;open_files_limit&apos;;</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>Variable_name</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>open_files_limit</td>
-<td>4590</td>
-</tr>
-</tbody></table>
-<p>比较合适的设置：Open_files / open_files_limit * 100% &lt;= 75%</p>
-<hr>
-<p>十、表锁情况 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show global status like &apos;table_locks%&apos;;</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>Variable_name</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Table_locks_immediate</td>
-<td>490206328</td>
-</tr>
-<tr>
-<td>Table_locks_waited</td>
-<td>2084912</td>
-</tr>
-</tbody></table>
-<p>Table_locks_immediate表示立即释放表锁数，Table_locks_waited表示需要等待的表锁数，如果Table_locks_immediate / Table_locks_waited &gt; 5000，最好采用InnoDB引擎，因为InnoDB是行锁而MyISAM是表锁，对于高并发写入的应用InnoDB效果会好些。示例中的服务器Table_locks_immediate / Table_locks_waited = 235，MyISAM就足够了。</p>
-<hr>
-<p>十一、表扫描情况 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show global status like &apos;handler_read%&apos;;</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>Variable_name</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Handler_read_first</td>
-<td>5803750</td>
-</tr>
-<tr>
-<td>Handler_read_key</td>
-<td>6049319850</td>
-</tr>
-<tr>
-<td>Handler_read_next</td>
-<td>94440908210</td>
-</tr>
-<tr>
-<td>Handler_read_prev</td>
-<td>34822001724</td>
-</tr>
-<tr>
-<td>Handler_read_rnd</td>
-<td>405482605</td>
-</tr>
-<tr>
-<td>Handler_read_rnd_next</td>
-<td>18912877839</td>
-</tr>
-</tbody></table>
-<p>各字段解释参见<a href="http://hi.baidu.com/thinkinginlamp/blog/item/31690cd7c4bc5cdaa144df9c.html，调出服务器完成的查询请求次数：" target="_blank" rel="noopener">http://hi.baidu.com/thinkinginlamp/blog/item/31690cd7c4bc5cdaa144df9c.html，调出服务器完成的查询请求次数：</a> </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show global status like &apos;com_select&apos;;</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>Variable_name</th>
-<th>value</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Com_select</td>
-<td>222693559</td>
-</tr>
-</tbody></table>
-<p>计算表扫描率：<br>　　表扫描率 = Handler_read_rnd_next / Com_select<br>　　如果表扫描率超过4000，说明进行了太多表扫描，很有可能索引没有建好，增加read_buffer_size值会有一些好处，但最好不要超过8MB。</p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
   </div>
-  
-  
-  
-  </article>
-
-    
-      
-
-  <article class="post" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://liuhao199764.github.io/2019/08/26/k8s/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiuHao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我不知去向何方">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/08/26/k8s/" class="post-title-link" itemprop="url">k8s</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-08-26 11:04:21 / 修改时间：11:57:13" itemprop="dateCreated datePublished" datetime="2019-08-26T11:04:21+08:00">2019-08-26</time>
-            </span>
-          
-            
-
-            
-          
-
-          
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">本文字数：</span>
-              
-              <span>2.7k</span>
-            </span>
-          
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              
-              <span>2 分钟</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <hr>
-<h2 id="1-K8S架构和组件"><a href="#1-K8S架构和组件" class="headerlink" title="1.K8S架构和组件"></a>1.K8S架构和组件</h2><p><img src="//liuhao199764.github.io/2019/08/26/k8s/k8s.png" alt="k8s"></p>
-<h3 id="1-1-Master"><a href="#1-1-Master" class="headerlink" title="1.1 Master"></a>1.1 Master</h3><ul>
-<li><p>Kubernetes API Server</p>
-<p>作为Kubernetes系统的入口，其封装了核心对象的增删改查操作，以RESTful API接口方式提供给外部客户和内部组件调用。维护的REST对象持久化到Etcd中存储。</p>
-</li>
-<li><p>Kubernetes Scheduler<br>为新建立的Pod进行节点(node)选择(即分配机器)，负责集群的资源调度。组件抽离，可以方便替换成其他调度器。</p>
-</li>
-<li><p>Kubernetes Controller</p>
-<p>负责执行各种控制器，目前已经提供了很多控制器来保证Kubernetes的正常运行。</p>
-</li>
-<li><p>Replication Controller</p>
-<p>管理维护Replication Controller，关联Replication Controller和Pod，保证Replication Controller定义的副本数量与实际运行Pod数量一致。</p>
-</li>
-</ul>
-<h3 id="1-2-Node"><a href="#1-2-Node" class="headerlink" title="1.2 Node"></a>1.2 Node</h3><ul>
-<li><p>Kubelet</p>
-<p>负责管控容器，Kubelet会从Kubernetes API Server接收Pod的创建请求，启动和停止容器，监控容器运行状态并汇报给Kubernetes API Server。</p>
-</li>
-<li><p>Kubernetes Proxy</p>
-<p>负责为Pod创建代理服务，Kubernetes Proxy会从Kubernetes API Server获取所有的Service信息，并根据Service的信息创建代理服务，实现Service到Pod的请求路由和转发，从而实现Kubernetes层级的虚拟转发网络。</p>
-</li>
-<li><p>Docker  </p>
-<p>Node上需要运行容器服务</p>
-</li>
-</ul>
-<h2 id="2-K8S集群搭建常见问题"><a href="#2-K8S集群搭建常见问题" class="headerlink" title="2.K8S集群搭建常见问题"></a>2.K8S集群搭建常见问题</h2><ul>
-<li><p>解决 kubectl get pods时No resources found问题</p>
-<p>1、vim /etc/kubernetes/apiserver<br>2、找到”KUBE_ADMISSION_CONTROL=”-       admission_control=NamespaceLifecycle,NamespaceExists,LimitRanger,SecurityContextDeny,ServiceAccount,ResourceQuota”，去掉ServiceAccount，保存退出。<br>3、systemctl restart kube-apiserver  重启此服务</p>
-</li>
-<li><p>pull 失败</p>
-<ul>
-<li><p>解决方案1</p>
-<p>1、yum install <em>rhsm</em> -y</p>
-<p>2、docker pull registry.access.redhat.com/rhel7/pod-infrastructure:latest</p>
-<p>如果以上两步解决问题了，那么就不需要在执行下面操作</p>
-<p>3、docker search pod-infrastructure</p>
-<p>4、docker pull docker.io/tianyebj/pod-infrastructure</p>
-<p>5、docker tag tianyebj/pod-infrastructure 192.168.126.143:5000/pod-infrastructure  </p>
-<p>6、docker push 192.168.126.143:5000/pod-infrastructure</p>
-<p>7、vi /etc/kubernetes/kubelet </p>
-<p>修改 KUBELET_POD_INFRA_CONTAINER=”–pod-infra-container-image=192.168.126.143:5000/pod-    infrastructure:latest”</p>
-<p>8、重启服务</p>
-<p>systemctl restart kube-apiserver<br>systemctl restart kube-controller-manager<br>systemctl restart kube-scheduler<br>systemctl restart kubelet<br>systemctl restart kube-proxy</p>
-</li>
-<li><p>解决方案2</p>
-<p>1、docker pull kubernetes/pause</p>
-<p>2、docker tag docker.io/kubernetes/pause:latest 192.168.126.143:5000/google_containers/pause-amd64.3.0</p>
-<p>3、docker push 192.168.126.143:5000/google_containers/pause-amd64.3.0</p>
-<p>4、vi /etc/kubernetes/kubelet配置为</p>
-<p>​    KUBELET_ARGS=”–pod_infra_container_image=192.168.126.143:5000/google_containers/pause-amd64.3.0”</p>
-<p>5、重启kubelet服务   systemctl restart kubelet</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">私有仓库搭建</span><br><span class="line">docker pull registry</span><br><span class="line">docker run -di --name=registry -p 5000:5000 registry</span><br><span class="line">修改daemon.json &#123;&quot;insecure-registries&quot;:[&quot;192.168.126.148:5000&quot;]&#125;</span><br><span class="line">重启docker服务 systemctl restart docker</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<h2 id="3-常用命令"><a href="#3-常用命令" class="headerlink" title="3.常用命令"></a>3.常用命令</h2><ul>
-<li><p>获取当前命名空间下的容器</p>
-<p>kubectl get pods</p>
-</li>
-<li><p>获取所有容器l列表</p>
-<p>kubectl get  all</p>
-</li>
-<li><p>创建 容器</p>
-<p>kubectl create -f kubernate-pvc.yaml</p>
-</li>
-<li><p>删除容器</p>
-<p>kubectl delete pods/test-pd  或者 kubectl delete -f rc-nginx.yaml</p>
-</li>
-<li><p>查看指定pod跑在哪个node上</p>
-<p>kubectl get pod /test-pd -o wide </p>
-</li>
-<li><p>查看容器日志</p>
-<p>Kubectl logs nginx-8586cf59-mwwtc</p>
-</li>
-<li><p>进入容器终端命令</p>
-<p>kubectl exec -it nginx-8586cf59-mwwtc /bin/bash</p>
-</li>
-<li><p>一个Pod里含有多个容器 用–container or -c 参数。</p>
-<p>例如:假如这里有个Pod名为my-pod,这个Pod有两个容器,分别名为main-app 和 helper-app,下面的命令将打开到main-app的shell的容器里。</p>
-<p>kubectl exec -it my-pod –container main-app – /bin/bash</p>
-</li>
-<li><p>容器详情列表</p>
-<p>kubectl <em>describe</em> pod/mysql- m8rbl</p>
-</li>
-<li><p>查看容器状态</p>
-<p>kubectl get svc</p>
-</li>
-</ul>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -1149,6 +489,11 @@
 
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
+        
+        
+        
+        
+      
 
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc" data-target="post-toc-wrap">
@@ -1161,6 +506,10 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc">
+            <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Nginx配置文件"><span class="nav-number">1.</span> <span class="nav-text">Nginx配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nginx⽇志配置"><span class="nav-number">2.</span> <span class="nav-text">Nginx⽇志配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Nginx⽇志配置规范"><span class="nav-number">2.0.1.</span> <span class="nav-text">Nginx⽇志配置规范</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nginx状态监控"><span class="nav-number">3.</span> <span class="nav-text">Nginx状态监控</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nginx下载站点"><span class="nav-number">4.</span> <span class="nav-text">Nginx下载站点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nginx访问限制"><span class="nav-number">5.</span> <span class="nav-text">Nginx访问限制</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#http协议的连接与请求"><span class="nav-number">5.0.1.</span> <span class="nav-text">http协议的连接与请求</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Nginx连接限制配置"><span class="nav-number">5.0.2.</span> <span class="nav-text">Nginx连接限制配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Nginx-请求限制配置"><span class="nav-number">5.0.3.</span> <span class="nav-text">Nginx 请求限制配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#连接限制没有请求限制有效"><span class="nav-number">5.0.4.</span> <span class="nav-text">连接限制没有请求限制有效?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Nginx访问控制"><span class="nav-number">5.0.5.</span> <span class="nav-text">Nginx访问控制</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#http-access-module局限性"><span class="nav-number">5.0.6.</span> <span class="nav-text">http_access_module局限性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#解决⽅式"><span class="nav-number">5.0.7.</span> <span class="nav-text">解决⽅式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#基于⽤户登陆认证"><span class="nav-number">5.0.8.</span> <span class="nav-text">基于⽤户登陆认证</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#⽤户认证局限性"><span class="nav-number">5.0.9.</span> <span class="nav-text">⽤户认证局限性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#解决办法"><span class="nav-number">5.0.10.</span> <span class="nav-text">解决办法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nginx虚拟主机"><span class="nav-number">6.</span> <span class="nav-text">Nginx虚拟主机</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#配置基于域名虚拟主机"><span class="nav-number">6.0.1.</span> <span class="nav-text">配置基于域名虚拟主机</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置不同端⼝访问不同虚拟主机"><span class="nav-number">6.0.2.</span> <span class="nav-text">配置不同端⼝访问不同虚拟主机</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置虚拟主机别名"><span class="nav-number">6.0.3.</span> <span class="nav-text">配置虚拟主机别名</span></a></li></ol></li></ol></li></ol></div>
+          </div>
+        
       </div>
       <!--/noindex-->
 
@@ -1288,6 +637,9 @@
 
 
   
+  <script src="/js/post-details.js?v=7.3.0"></script>
+
+
   
  <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
  <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
