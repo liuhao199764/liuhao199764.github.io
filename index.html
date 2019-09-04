@@ -237,6 +237,194 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://liuhao199764.github.io/2019/09/04/Nginx/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiuHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我不知去向何方">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/09/04/Nginx/" class="post-title-link" itemprop="url">Nginx</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-04 10:13:28 / 修改时间：10:16:32" itemprop="dateCreated datePublished" datetime="2019-09-04T10:13:28+08:00">2019-09-04</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>7.1k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>6 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Nginx配置文件"><a href="#Nginx配置文件" class="headerlink" title="Nginx配置文件"></a>Nginx配置文件</h3><p>Nginx主配置⽂件nginx.conf 是⼀个纯⽂本类型的⽂件，整个配置⽂件是以区块的</p>
+<p>形式组织的。⼀般，每个区块以⼀对⼤括号 {} 来表示开始与结束。</p>
+<ol>
+<li>Main位于nginx.conf配置⽂件的最⾼层</li>
+<li>Main层下可以有Event、HTTP层</li>
+<li>HTTP层下⾯有允许有多个Server层, ⽤于对不同的⽹站做不同的配置</li>
+<li>Server层也允许有多个Location, ⽤于对不同的路径进⾏不同模块的配置</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">//nginx默认配置语法</span><br><span class="line">user				//设置nginx服务的系统使⽤⽤户</span><br><span class="line">worker_processes	//⼯作进程,	配置和CPU个数保持⼀致</span><br><span class="line">error_log			//错误⽇志,	后⾯接⼊的是路径</span><br><span class="line">pid					//Nginx服务启动时的pid</span><br><span class="line">//events事件模块</span><br><span class="line">events	&#123;	//事件模块												</span><br><span class="line">		worker_connections		//每个worker进程⽀持的最⼤连接数</span><br><span class="line">		use						//内核模型,select,poll,epoll</span><br><span class="line">&#125;</span><br><span class="line">//⾮虚拟主机的配置或公共配置定义在http&#123;&#125;段内,	server&#123;&#125;段外</span><br><span class="line">http	&#123;</span><br><span class="line">...				</span><br><span class="line">//必须使⽤虚拟机配置站点,	每个虚拟机使⽤⼀个server&#123;&#125;段</span><br><span class="line">	'server'&#123;</span><br><span class="line">			listen	80;	//监听端⼝,	默认80</span><br><span class="line">			server_name	localhost;	//提供服务的域名或主机名				</span><br><span class="line">			    //控制⽹站访问路径</span><br><span class="line">				'location'	/	&#123;</span><br><span class="line">						root  /usr/share/nginx/html;	//存放⽹站路径</span><br><span class="line">						index	index.html	index.htm;	//默认访问⾸⻚⽂件</span><br><span class="line">								&#125;</span><br><span class="line">								</span><br><span class="line">			   //指定错误代码,统⼀定义错误⻚⾯,错误代码重定向到新的Locaiton</span><br><span class="line">								error_page	500 502 503 504		/50x.html;</span><br><span class="line">								'location'	=/50x.html	&#123;</span><br><span class="line">									root  html;</span><br><span class="line">						&#125;</span><br><span class="line">				&#125;</span><br><span class="line">				...</span><br><span class="line">				//第⼆个虚拟主机配置</span><br><span class="line">				'server'	&#123;</span><br><span class="line">				...</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="Nginx⽇志配置"><a href="#Nginx⽇志配置" class="headerlink" title="Nginx⽇志配置"></a><strong>Nginx</strong>⽇志配置</h3><p>在学习⽇志之前, 我们需要先了解下HTTP请求和返回</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -v	http://www.baidu.com</span><br></pre></td></tr></table></figure>
+
+<p><img src="//liuhao199764.github.io/2019/09/04/Nginx/nginx.png" alt="Http请求与返回"></p>
+<h5 id="Nginx⽇志配置规范"><a href="#Nginx⽇志配置规范" class="headerlink" title="Nginx⽇志配置规范"></a>Nginx⽇志配置规范</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">//配置语法:	包括:	error.log	access.log</span><br><span class="line">Syntax:	log_format	name	[escape=default|json]	string	...;</span><br><span class="line">Default:				log_format	combined	"...";</span><br><span class="line">Context:				http</span><br><span class="line">//Nginx默认配置</span><br><span class="line">log_format	main		'$remote_addr -	$remote_user [$time_local] "$request"'</span><br><span class="line">						'$status	$body_bytes_sent	"$http_referer"'										'"$http_user_agent"	"$http_x_forwarded_for"';</span><br><span class="line">//Nginx⽇志变量</span><br><span class="line"><span class="meta">$</span>remote_addr				//表示客户端地址</span><br><span class="line"><span class="meta">$</span>remote_user				//http客户端请求nginx认证⽤户名</span><br><span class="line"><span class="meta">$</span>time_local					//Nginx的时间</span><br><span class="line"><span class="meta">$</span>request					//Request请求⾏,	GET等⽅法、http协议版本</span><br><span class="line"><span class="meta">$</span>status						//respoence返回状态码</span><br><span class="line"><span class="meta">$</span>body_bytes_sent			//从服务端响应给客户端body信息⼤⼩</span><br><span class="line"><span class="meta">$</span>http_referer				//http上⼀级⻚⾯,	防盗链、⽤户⾏为分析</span><br><span class="line"><span class="meta">$</span>http_user_agent			//http头部信息,	客户端访问设备</span><br><span class="line"><span class="meta">$</span>http_x_forwarded_for		//http请求携带的http信息</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="Nginx状态监控"><a href="#Nginx状态监控" class="headerlink" title="Nginx状态监控"></a><strong>Nginx</strong>状态监控</h3><p>–with-http_stub_status_module 记录 Nginx 客户端基本访问状态信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Syntax:	stub_status;</span><br><span class="line">Default:	—</span><br><span class="line">Context:	server,	location</span><br></pre></td></tr></table></figure>
+
+<p>具体配置如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">location  /mystatus	&#123;</span><br><span class="line">			 stub_status	on;</span><br><span class="line">			 access_log	off;</span><br><span class="line">&#125;</span><br><span class="line">//Nginx_status概述</span><br><span class="line">Active	connections:2	//Nginx当前活跃连接数</span><br><span class="line">server	accepts	handled	requests</span><br><span class="line">16					16					19</span><br><span class="line">server表示Nginx处理接收握⼿总次数。</span><br><span class="line">accepts表示Nginx处理接收总连接数。</span><br><span class="line">请求丢失数=(握⼿数-连接数)可以看出,本次状态显示没有丢失请求。</span><br><span class="line">handled	requests，表示总共处理了19次请求。</span><br><span class="line">Reading			Nginx读取数据</span><br><span class="line">Writing			Nginx写的情况</span><br><span class="line">Waiting			Nginx开启keep-alive⻓连接情况下,	既没有读也没有写,	建⽴连接情况</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="Nginx下载站点"><a href="#Nginx下载站点" class="headerlink" title="Nginx下载站点"></a><strong>Nginx</strong>下载站点</h3><p>Nginx默认是不允许列出整个⽬录浏览下载。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Syntax:	autoindex	on	|	off;</span><br><span class="line">Default:				</span><br><span class="line">autoindex	off;</span><br><span class="line">Context:	http, server, location</span><br><span class="line">//autoindex常⽤参数</span><br><span class="line">autoindex_exact_size	off;</span><br><span class="line">默认为on， 显示出⽂件的确切⼤⼩，单位是bytes。</span><br><span class="line">修改为off，显示出⽂件的⼤概⼤⼩，单位是kB或者MB或者GB。</span><br><span class="line">autoindex_localtime	on;</span><br><span class="line">默认为off，显示的⽂件时间为GMT时间。</span><br><span class="line">修改为on， 显示的⽂件时间为⽂件的服务器时间。</span><br><span class="line">charset	utf-<span class="number">8</span>,gbk;</span><br><span class="line">默认中⽂⽬录乱码，添加上解决乱码。</span><br></pre></td></tr></table></figure>
+
+<p>配置⽬录浏览功能</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Nginx访问限制//开启⽬录浏览</span><br><span class="line">location /	&#123;</span><br><span class="line">				root	html;</span><br><span class="line">				autoindex	on;</span><br><span class="line">				autoindex_localtime	on;</span><br><span class="line">				autoindex_exact_size	off;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="Nginx访问限制"><a href="#Nginx访问限制" class="headerlink" title="Nginx访问限制"></a>Nginx访问限制</h3><p>连接频率限制 limit_conn_module</p>
+<p>请求频率限制 limit_req_module</p>
+<h5 id="http协议的连接与请求"><a href="#http协议的连接与请求" class="headerlink" title="http协议的连接与请求"></a><strong>http</strong>协议的连接与请求</h5><p>HTTP是建⽴在TCP, 在完成HTTP请求需要先建⽴TCP三次握⼿（称为TCP连接）,在连接的基础上再HTTP请求。</p>
+<p><img src="Nginx/http.png" alt="http协议的连接与请求"></p>
+<p>HTTP 协议的连接与请求</p>
+<table>
+<thead>
+<tr>
+<th><strong>HTTP</strong>协议版本</th>
+<th>连接关系</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>HTTP1.0</td>
+<td>TCP不能复⽤</td>
+</tr>
+<tr>
+<td>HTTP1.1</td>
+<td>顺序性TCP复⽤</td>
+</tr>
+<tr>
+<td>HTTP2.0</td>
+<td>多路复⽤TCP复⽤</td>
+</tr>
+</tbody></table>
+<p>HTTP 请求建⽴在⼀次 TCP 连接基础上 ⼀次 TCP 请求⾄少产⽣⼀次 HTTP 请求</p>
+<h5 id="Nginx连接限制配置"><a href="#Nginx连接限制配置" class="headerlink" title="Nginx连接限制配置"></a>Nginx连接限制配置</h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">//Nginx连接限制语法</span><br><span class="line">Syntax:		limit_conn_zone	key	zone=name:size;</span><br><span class="line">Default:	—</span><br><span class="line">Context:	http</span><br><span class="line">Syntax:	limit_conn	zone	number;</span><br><span class="line">Default:	—</span><br><span class="line">Context:	http,	server,	location</span><br><span class="line">//具体配置如下:</span><br><span class="line">http &#123;</span><br><span class="line">//http段配置连接限制,	同⼀时刻只允许⼀个客户端IP连接</span><br><span class="line">limit_conn_zone	<span class="variable">$binary_remote_addr</span>	zone=conn_zone:<span class="number">10</span>m;</span><br><span class="line">				...</span><br><span class="line">				server	&#123;</span><br><span class="line">				...		</span><br><span class="line">					location	/	&#123;</span><br><span class="line">					//同⼀时刻只允许⼀个客户端IP连接</span><br><span class="line">					limit_conn	conn_zone	<span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">//压⼒测试</span><br><span class="line">yum	install	-y	httpd-tools</span><br><span class="line">ab	-n	<span class="number">50</span>	-c	<span class="number">20</span>		http://<span class="number">127.0</span>.<span class="number">0.1</span>/index.html</span><br></pre></td></tr></table></figure>
+
+<h5 id="Nginx-请求限制配置"><a href="#Nginx-请求限制配置" class="headerlink" title="Nginx 请求限制配置"></a>Nginx 请求限制配置</h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">//Nginx请求限制语法</span><br><span class="line">Syntax:		limit_req_zone	key	zone=name:size	rate=rate;</span><br><span class="line">Default:	—</span><br><span class="line">Context:	http</span><br><span class="line">Syntax:	limit_conn	zone	number	[burst=number]	[nodelay];</span><br><span class="line">Default:	—</span><br><span class="line">Context:	http,	server,	location</span><br><span class="line">//具体配置如下:</span><br><span class="line">http	&#123;</span><br><span class="line">//http段配置请求限制,	rate限制速率，限制⼀秒钟最多⼀个IP请求</span><br><span class="line">limit_req_zone	<span class="variable">$binary_remote_addr</span>	zone=req_zone:<span class="number">10</span>m	rate=<span class="number">1</span>r/s;</span><br><span class="line">				...</span><br><span class="line">				server	&#123;</span><br><span class="line">				...		</span><br><span class="line">				location /	&#123;</span><br><span class="line">				//<span class="number">1</span>r/s只接收⼀个请求,其余请求拒绝处理并返回错误码给客户端</span><br><span class="line">				limit_req	zone=req_zone;</span><br><span class="line">				//请求超过<span class="number">1</span>r/s,剩下的将被延迟处理,请求数超过burst定义的数量,	多余的请求返回<span class="number">503</span></span><br><span class="line">				<span class="comment">#limit_req	zone=req_zone	burst=3	nodelay;</span></span><br><span class="line">								&#125;</span><br><span class="line">//压⼒测试</span><br><span class="line">yum	install	-y	httpd-tools</span><br><span class="line">ab	-n	<span class="number">50</span>	-c	<span class="number">20</span>		http://<span class="number">127.0</span>.<span class="number">0.1</span>/index.html</span><br></pre></td></tr></table></figure>
+
+<h5 id="连接限制没有请求限制有效"><a href="#连接限制没有请求限制有效" class="headerlink" title="连接限制没有请求限制有效?"></a>连接限制没有请求限制有效<strong>?</strong></h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">多个请求可以建⽴在⼀次的TCP连接之上, 那么我们对请求的精度限制，当然⽐对⼀个连接的限制会更加的有效。</span><br><span class="line">因为同⼀时刻只允许⼀个连接请求进⼊。</span><br><span class="line">但是同⼀时刻多个请求可以通过⼀个连接进⼊。</span><br><span class="line">所以请求限制才是⽐较优的解决⽅案。</span><br></pre></td></tr></table></figure>
+
+<h5 id="Nginx访问控制"><a href="#Nginx访问控制" class="headerlink" title="Nginx访问控制"></a><strong>Nginx</strong>访问控制</h5><p>基于IP的访问控制 http_access_module</p>
+<p>基于⽤户登陆认证 http_auth_basic_module</p>
+<p>基于IP的访问控制</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">//允许配置语法</span><br><span class="line">Syntax:	allow	address	|	CIDR	|	unix:	|	all;</span><br><span class="line">Default:				—</span><br><span class="line">Context:				http,	server,	location,	limit_except</span><br><span class="line">//拒绝配置语法</span><br><span class="line">Syntax:	deny	address	|	CIDR	|	unix:	|	all;</span><br><span class="line">Default:				—</span><br><span class="line">Context:				http,	server,	location,	limit_except</span><br><span class="line">//配置拒绝某⼀个IP,	其他全部允许</span><br><span class="line">location	~	^/<span class="number">1</span>.html	&#123;</span><br><span class="line">				root	/usr/share/nginx/html;</span><br><span class="line">				index	index.html;</span><br><span class="line">				deny	<span class="number">192.168</span>.<span class="number">56.1</span>;</span><br><span class="line">				allow	all;</span><br><span class="line">&#125;</span><br><span class="line">//只允许某⼀个⽹段访问,其它全部拒绝</span><br><span class="line">location	/	&#123;</span><br><span class="line">				root			html;</span><br><span class="line">				index		    index.php	index.html	index.htm;</span><br><span class="line">				allow			<span class="number">192.168</span>.<span class="number">56.0</span>/<span class="number">24</span>;</span><br><span class="line">				deny			all;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="http-access-module局限性"><a href="#http-access-module局限性" class="headerlink" title="http_access_module局限性"></a><strong>http_access_module</strong>局限性</h5><p><img src="Nginx/http_access_module.png" alt=" **http_access_module**局限性"></p>
+<p> 下图是使⽤ http_x_forwarded_for 记录真实客户端IP地址以及代理服务器IP</p>
+<p><img src="Nginx/http_access_module1.png" alt></p>
+<h5 id="解决⽅式"><a href="#解决⽅式" class="headerlink" title="解决⽅式"></a>解决⽅式</h5><p>1.采⽤HTTP头信息控制访问, 代理以及web服务开启 http_x_forwarded_for</p>
+<p>2.结合geo模块作</p>
+<p>3.通过HTTP⾃动以变量传递</p>
+<h5 id="基于⽤户登陆认证"><a href="#基于⽤户登陆认证" class="headerlink" title="基于⽤户登陆认证"></a>基于⽤户登陆认证</h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//配置语法</span><br><span class="line">Syntax:	auth_basic	string|	off;</span><br><span class="line">Default:				auth_basic	off;</span><br><span class="line">Context:				http,	server,	location,	limit_except</span><br><span class="line">//⽤户密码记录配置⽂件</span><br><span class="line">Syntax:	auth_basic_user_file	file;</span><br><span class="line">Default:				-</span><br><span class="line">Context:				http,	server,	location,	limit_except</span><br><span class="line">//需要安装依赖组件</span><br><span class="line">[root@xuliangwei	~]<span class="comment">#	yum	install	httpd-tools</span></span><br><span class="line">[root@xuliangwei	~]<span class="comment">#	htpasswd	-c	/etc/nginx/auth_conf	xuliangwei</span></span><br><span class="line">//可在http,server,location下添加如下信息</span><br><span class="line">auth_basic	<span class="string">"Auth	access	Blog	Input	your	Passwd!"</span>;</span><br><span class="line">auth_basic_user_file	/etc/nginx/auth_conf;</span><br></pre></td></tr></table></figure>
+
+<h5 id="⽤户认证局限性"><a href="#⽤户认证局限性" class="headerlink" title="⽤户认证局限性"></a>⽤户认证局限性</h5><p>​    1.⽤户信息依赖⽂件⽅式</p>
+<p>​    2.⽤户管理⽂件过多, ⽆法联动</p>
+<p>​    3.操作管理机械，效率低下</p>
+<h5 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h5><ol>
+<li>Nginx 结合 LUA 实现⾼效验证</li>
+<li>Nginx 结合 LDAP 利⽤ nginx-auth-ldap 模块</li>
+</ol>
+<hr>
+<h3 id="Nginx虚拟主机"><a href="#Nginx虚拟主机" class="headerlink" title="Nginx虚拟主机"></a><strong>Nginx</strong>虚拟主机</h3><p>所谓虚拟主机，在web服务器⾥是⼀个独⽴的⽹站站点，这个站点对应独⽴的域名(也可能是IP或</p>
+<p> 端⼝)，具有独⽴的程序及资源⽬录，可以独⽴地对外提供服务供⽤户访问。</p>
+<h5 id="配置基于域名虚拟主机"><a href="#配置基于域名虚拟主机" class="headerlink" title="配置基于域名虚拟主机"></a>配置基于域名虚拟主机</h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>.创建web站点⽬录</span><br><span class="line">[root@LNMP	conf]<span class="comment">#	mkdir	/soft/code/&#123;www,bbs&#125;</span></span><br><span class="line">[root@LNMP	conf]<span class="comment">#	echo	"www"	&gt;	/soft/code/www/index.html</span></span><br><span class="line">[root@LNMP	conf]<span class="comment">#	echo	"bbs"	&gt;	/soft/code/bbs/index.html</span></span><br><span class="line"><span class="number">2</span>.配置虚拟主机</span><br><span class="line">[root@LNMP	conf]<span class="comment">#	cat conf.d/&#123;www,bbs&#125;.conf</span></span><br><span class="line">server	&#123;</span><br><span class="line">				listen							<span class="number">80</span>;</span><br><span class="line">				server_name		www.xuliangwei.com;</span><br><span class="line">				root	/soft/code/www;</span><br><span class="line">				...</span><br><span class="line">&#125;</span><br><span class="line">server	&#123;</span><br><span class="line">				...</span><br><span class="line">				listen							<span class="number">80</span>;</span><br><span class="line">				server_name		bbs.xuliangwei.com;</span><br><span class="line">				root	/soft/code/bbs;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="配置不同端⼝访问不同虚拟主机"><a href="#配置不同端⼝访问不同虚拟主机" class="headerlink" title="配置不同端⼝访问不同虚拟主机"></a>配置不同端⼝访问不同虚拟主机</h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//仅修改listen监听端⼝即可,	但不能和系统端⼝发⽣冲突</span><br><span class="line">server	&#123;</span><br><span class="line">				...</span><br><span class="line">				listen							<span class="number">8001</span>;</span><br><span class="line">Nginx虚拟主机</span><br><span class="line">				...</span><br><span class="line">&#125;</span><br><span class="line">server	&#123;</span><br><span class="line">				...</span><br><span class="line">				listen							<span class="number">8002</span>;</span><br><span class="line">				...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="配置虚拟主机别名"><a href="#配置虚拟主机别名" class="headerlink" title="配置虚拟主机别名"></a>配置虚拟主机别名</h5><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">所谓虚拟主机别名，就是虚拟主机设置除了主域名以外的⼀个域名，实现⽤户访问的多个域名对应同⼀个</span><br><span class="line">虚拟主机⽹站的功能。</span><br><span class="line">以www.xuliangwei.com域名的虚拟主机为例:</span><br><span class="line">为其增加⼀个别名xuliangwei.com时,出现⽹站内容和访问www.xuliangwei.com是⼀样的,具体配置如</span><br><span class="line">下：</span><br><span class="line">//默认配置</span><br><span class="line">[root@LNMP	~]<span class="comment">#	vim	/etc/nginx/nginx.conf</span></span><br><span class="line">server	&#123;</span><br><span class="line">				listen							<span class="number">80</span>;</span><br><span class="line">				server_name	www.xuliangwei.com;</span><br><span class="line">&#125;</span><br><span class="line">//别名配置</span><br><span class="line">[root@LNMP	~]<span class="comment">#	vim	/etc/nginx/nginx.conf</span></span><br><span class="line">server	&#123;</span><br><span class="line">				listen							<span class="number">80</span>;</span><br><span class="line">				server_name		www.xuliangwei.com	xuliangwei.com;</span><br><span class="line">				...</span><br><span class="line">&#125;</span><br><span class="line">//使⽤Linux下curl测试结果</span><br><span class="line">[root@LNMP	conf]<span class="comment">#	curl	xuliangwei.com</span></span><br><span class="line">www.xuliangwei.com</span><br><span class="line">[root@LNMP	conf]<span class="comment">#	curl	www.xuliangwei.com</span></span><br><span class="line">www.xuliangwei.com</span><br><span class="line">//访问带www和不带www是⼀样的,	除了别名实现也可以通过rewrite实现</span><br></pre></td></tr></table></figure>
+
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://liuhao199764.github.io/2019/09/04/Nginx基础配置/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1178,7 +1366,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1209,12 +1397,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">17k</span>
+    <span title="站点总字数">24k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">16 分钟</span>
+    <span title="站点阅读时长">22 分钟</span>
 </div>
 
         

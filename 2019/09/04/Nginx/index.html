@@ -58,21 +58,21 @@
 
   <meta name="description" content="Nginx配置文件Nginx主配置⽂件nginx.conf 是⼀个纯⽂本类型的⽂件，整个配置⽂件是以区块的 形式组织的。⼀般，每个区块以⼀对⼤括号 {} 来表示开始与结束。  Main位于nginx.conf配置⽂件的最⾼层 Main层下可以有Event、HTTP层 HTTP层下⾯有允许有多个Server层, ⽤于对不同的⽹站做不同的配置 Server层也允许有多个Location, ⽤于对不同的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Nginx基础配置">
-<meta property="og:url" content="https://liuhao199764.github.io/2019/09/04/Nginx基础配置/index.html">
+<meta property="og:title" content="Nginx">
+<meta property="og:url" content="https://liuhao199764.github.io/2019/09/04/Nginx/index.html">
 <meta property="og:site_name" content="我不知去向何方">
 <meta property="og:description" content="Nginx配置文件Nginx主配置⽂件nginx.conf 是⼀个纯⽂本类型的⽂件，整个配置⽂件是以区块的 形式组织的。⼀般，每个区块以⼀对⼤括号 {} 来表示开始与结束。  Main位于nginx.conf配置⽂件的最⾼层 Main层下可以有Event、HTTP层 HTTP层下⾯有允许有多个Server层, ⽤于对不同的⽹站做不同的配置 Server层也允许有多个Location, ⽤于对不同的">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://liuhao199764.github.io/2019/09/04/Nginx基础配置/nginx.png">
-<meta property="og:image" content="https://liuhao199764.github.io/2019/09/04/Nginx基础配置/Nginx%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/http.png">
-<meta property="og:image" content="https://liuhao199764.github.io/2019/09/04/Nginx基础配置/Nginx%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/http_access_module.png">
-<meta property="og:image" content="https://liuhao199764.github.io/2019/09/04/Nginx基础配置/Nginx%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/http_access_module1.png">
-<meta property="og:updated_time" content="2019-09-04T01:56:26.613Z">
+<meta property="og:image" content="https://liuhao199764.github.io/2019/09/04/Nginx/nginx.png">
+<meta property="og:image" content="https://liuhao199764.github.io/2019/09/04/Nginx/Nginx/http.png">
+<meta property="og:image" content="https://liuhao199764.github.io/2019/09/04/Nginx/Nginx/http_access_module.png">
+<meta property="og:image" content="https://liuhao199764.github.io/2019/09/04/Nginx/Nginx/http_access_module1.png">
+<meta property="og:updated_time" content="2019-09-04T02:16:32.717Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nginx基础配置">
+<meta name="twitter:title" content="Nginx">
 <meta name="twitter:description" content="Nginx配置文件Nginx主配置⽂件nginx.conf 是⼀个纯⽂本类型的⽂件，整个配置⽂件是以区块的 形式组织的。⼀般，每个区块以⼀对⼤括号 {} 来表示开始与结束。  Main位于nginx.conf配置⽂件的最⾼层 Main层下可以有Event、HTTP层 HTTP层下⾯有允许有多个Server层, ⽤于对不同的⽹站做不同的配置 Server层也允许有多个Location, ⽤于对不同的">
-<meta name="twitter:image" content="https://liuhao199764.github.io/2019/09/04/Nginx基础配置/nginx.png">
-  <link rel="canonical" href="https://liuhao199764.github.io/2019/09/04/Nginx基础配置/">
+<meta name="twitter:image" content="https://liuhao199764.github.io/2019/09/04/Nginx/nginx.png">
+  <link rel="canonical" href="https://liuhao199764.github.io/2019/09/04/Nginx/">
 
 
 <script id="page-configurations">
@@ -86,7 +86,7 @@
   };
 </script>
 
-  <title>Nginx基础配置 | 我不知去向何方</title>
+  <title>Nginx | 我不知去向何方</title>
   <meta name="generator" content="Hexo 3.9.0">
   
 
@@ -247,7 +247,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://liuhao199764.github.io/2019/09/04/Nginx基础配置/">
+    <link itemprop="mainEntityOfPage" href="https://liuhao199764.github.io/2019/09/04/Nginx/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LiuHao">
@@ -259,7 +259,7 @@
       <meta itemprop="name" content="我不知去向何方">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Nginx基础配置
+        <h1 class="post-title" itemprop="name headline">Nginx
 
           
         </h1>
@@ -275,7 +275,7 @@
                 
               
 
-              <time title="创建时间：2019-09-04 08:33:14 / 修改时间：09:56:26" itemprop="dateCreated datePublished" datetime="2019-09-04T08:33:14+08:00">2019-09-04</time>
+              <time title="创建时间：2019-09-04 10:13:28 / 修改时间：10:16:32" itemprop="dateCreated datePublished" datetime="2019-09-04T10:13:28+08:00">2019-09-04</time>
             </span>
           
             
@@ -329,7 +329,7 @@
 <h3 id="Nginx⽇志配置"><a href="#Nginx⽇志配置" class="headerlink" title="Nginx⽇志配置"></a><strong>Nginx</strong>⽇志配置</h3><p>在学习⽇志之前, 我们需要先了解下HTTP请求和返回</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -v	http://www.baidu.com</span><br></pre></td></tr></table></figure>
 
-<p><img src="//liuhao199764.github.io/2019/09/04/Nginx基础配置/nginx.png" alt="Http请求与返回"></p>
+<p><img src="//liuhao199764.github.io/2019/09/04/Nginx/nginx.png" alt="Http请求与返回"></p>
 <h5 id="Nginx⽇志配置规范"><a href="#Nginx⽇志配置规范" class="headerlink" title="Nginx⽇志配置规范"></a>Nginx⽇志配置规范</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">//配置语法:	包括:	error.log	access.log</span><br><span class="line">Syntax:	log_format	name	[escape=default|json]	string	...;</span><br><span class="line">Default:				log_format	combined	"...";</span><br><span class="line">Context:				http</span><br><span class="line">//Nginx默认配置</span><br><span class="line">log_format	main		'$remote_addr -	$remote_user [$time_local] "$request"'</span><br><span class="line">						'$status	$body_bytes_sent	"$http_referer"'										'"$http_user_agent"	"$http_x_forwarded_for"';</span><br><span class="line">//Nginx⽇志变量</span><br><span class="line"><span class="meta">$</span>remote_addr				//表示客户端地址</span><br><span class="line"><span class="meta">$</span>remote_user				//http客户端请求nginx认证⽤户名</span><br><span class="line"><span class="meta">$</span>time_local					//Nginx的时间</span><br><span class="line"><span class="meta">$</span>request					//Request请求⾏,	GET等⽅法、http协议版本</span><br><span class="line"><span class="meta">$</span>status						//respoence返回状态码</span><br><span class="line"><span class="meta">$</span>body_bytes_sent			//从服务端响应给客户端body信息⼤⼩</span><br><span class="line"><span class="meta">$</span>http_referer				//http上⼀级⻚⾯,	防盗链、⽤户⾏为分析</span><br><span class="line"><span class="meta">$</span>http_user_agent			//http头部信息,	客户端访问设备</span><br><span class="line"><span class="meta">$</span>http_x_forwarded_for		//http请求携带的http信息</span><br></pre></td></tr></table></figure>
 
 <hr>
@@ -350,7 +350,7 @@
 <h3 id="Nginx访问限制"><a href="#Nginx访问限制" class="headerlink" title="Nginx访问限制"></a>Nginx访问限制</h3><p>连接频率限制 limit_conn_module</p>
 <p>请求频率限制 limit_req_module</p>
 <h5 id="http协议的连接与请求"><a href="#http协议的连接与请求" class="headerlink" title="http协议的连接与请求"></a><strong>http</strong>协议的连接与请求</h5><p>HTTP是建⽴在TCP, 在完成HTTP请求需要先建⽴TCP三次握⼿（称为TCP连接）,在连接的基础上再HTTP请求。</p>
-<p><img src="Nginx%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/http.png" alt="http协议的连接与请求"></p>
+<p><img src="Nginx/http.png" alt="http协议的连接与请求"></p>
 <p>HTTP 协议的连接与请求</p>
 <table>
 <thead>
@@ -384,9 +384,9 @@
 <p>基于IP的访问控制</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">//允许配置语法</span><br><span class="line">Syntax:	allow	address	|	CIDR	|	unix:	|	all;</span><br><span class="line">Default:				—</span><br><span class="line">Context:				http,	server,	location,	limit_except</span><br><span class="line">//拒绝配置语法</span><br><span class="line">Syntax:	deny	address	|	CIDR	|	unix:	|	all;</span><br><span class="line">Default:				—</span><br><span class="line">Context:				http,	server,	location,	limit_except</span><br><span class="line">//配置拒绝某⼀个IP,	其他全部允许</span><br><span class="line">location	~	^/<span class="number">1</span>.html	&#123;</span><br><span class="line">				root	/usr/share/nginx/html;</span><br><span class="line">				index	index.html;</span><br><span class="line">				deny	<span class="number">192.168</span>.<span class="number">56.1</span>;</span><br><span class="line">				allow	all;</span><br><span class="line">&#125;</span><br><span class="line">//只允许某⼀个⽹段访问,其它全部拒绝</span><br><span class="line">location	/	&#123;</span><br><span class="line">				root			html;</span><br><span class="line">				index		    index.php	index.html	index.htm;</span><br><span class="line">				allow			<span class="number">192.168</span>.<span class="number">56.0</span>/<span class="number">24</span>;</span><br><span class="line">				deny			all;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h5 id="http-access-module局限性"><a href="#http-access-module局限性" class="headerlink" title="http_access_module局限性"></a><strong>http_access_module</strong>局限性</h5><p><img src="Nginx%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/http_access_module.png" alt=" **http_access_module**局限性"></p>
+<h5 id="http-access-module局限性"><a href="#http-access-module局限性" class="headerlink" title="http_access_module局限性"></a><strong>http_access_module</strong>局限性</h5><p><img src="Nginx/http_access_module.png" alt=" **http_access_module**局限性"></p>
 <p> 下图是使⽤ http_x_forwarded_for 记录真实客户端IP地址以及代理服务器IP</p>
-<p><img src="Nginx%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/http_access_module1.png" alt></p>
+<p><img src="Nginx/http_access_module1.png" alt></p>
 <h5 id="解决⽅式"><a href="#解决⽅式" class="headerlink" title="解决⽅式"></a>解决⽅式</h5><p>1.采⽤HTTP头信息控制访问, 代理以及web服务开启 http_x_forwarded_for</p>
 <p>2.结合geo模块作</p>
 <p>3.通过HTTP⾃动以变量传递</p>
@@ -396,10 +396,8 @@
 <p>​    2.⽤户管理⽂件过多, ⽆法联动</p>
 <p>​    3.操作管理机械，效率低下</p>
 <h5 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h5><ol>
-<li><p>Nginx 结合 LUA 实现⾼效验证</p>
-</li>
-<li><p>Nginx 结合 LDAP 利⽤ nginx-auth-ldap 模块</p>
-</li>
+<li>Nginx 结合 LUA 实现⾼效验证</li>
+<li>Nginx 结合 LDAP 利⽤ nginx-auth-ldap 模块</li>
 </ol>
 <hr>
 <h3 id="Nginx虚拟主机"><a href="#Nginx虚拟主机" class="headerlink" title="Nginx虚拟主机"></a><strong>Nginx</strong>虚拟主机</h3><p>所谓虚拟主机，在web服务器⾥是⼀个独⽴的⽹站站点，这个站点对应独⽴的域名(也可能是IP或</p>
@@ -449,8 +447,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/08/26/mysql性能优化常用命令/" rel="next" title="mysql性能优化常用命令">
-                  <i class="fa fa-chevron-left"></i> mysql性能优化常用命令
+                <a href="/2019/09/04/Nginx基础配置/" rel="next" title="Nginx基础配置">
+                  <i class="fa fa-chevron-left"></i> Nginx基础配置
                 </a>
               
             </div>
@@ -458,10 +456,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/09/04/Nginx/" rel="prev" title="Nginx">
-                  Nginx <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
